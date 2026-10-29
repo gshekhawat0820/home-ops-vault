@@ -1,0 +1,43 @@
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Python environments and generated files
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node dependencies and build output
+node_modules/
+dist/
+build/
+coverage/
+
+# User documents and local application data
+/data/documents/
+/data/runtime/
+/data/uploads/
+/data/chroma/
+/data/chroma_db/
+chroma/
+chroma_db/
+*.db
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.db-*
+
+# Logs and generated evaluation output
+logs/
+*.log
+/evals/results/
+/evals/output/
+
+# macOS metadata
+.DS_Store
