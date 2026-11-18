@@ -1,6 +1,19 @@
-# Planned Architecture
+# Architecture
 
-> This describes the intended design. The application components and data flow below are not implemented yet.
+## Current scaffold
+
+The initial local development scaffold is implemented:
+
+```mermaid
+flowchart LR
+    Browser[React frontend] -->|/api via Vite proxy| API[FastAPI health endpoint]
+```
+
+The frontend displays a minimal Home Ops Vault home page and checks `GET /api/health`. No household documents are loaded, uploaded, or processed by this scaffold. Document ingestion, storage, retrieval, and answer generation are future work.
+
+## Planned application architecture
+
+> The components in this section describe the intended design and are not implemented yet.
 
 ```mermaid
 flowchart LR
@@ -26,6 +39,8 @@ flowchart LR
 - Retrieval results retain stable document and chunk identifiers so citations can be resolved from actual source records.
 - Model-provider credentials remain on the backend. If a hosted provider is configured, questions and relevant retrieved excerpts may leave the computer; the provider has not yet been selected.
 - Local documents and runtime data remain under `data/` and are excluded from version control. The exact configurable runtime-data location will be established during implementation.
+
+For local development, Vite proxies `/api` requests to FastAPI on `127.0.0.1:8000`; this avoids requiring browser CORS configuration for the development setup. Provider credentials, if introduced in a later milestone, must remain backend-only. The checked-in `backend/.env.example` is a placeholder and is not loaded by the current application.
 
 ## Planned question flow
 
